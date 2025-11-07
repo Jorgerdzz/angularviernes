@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Persona } from "../models/persona";
 import { environment } from "../../environments/environment.development";
 import axios from "axios";
 
@@ -10,7 +11,8 @@ export class ServicePersona{
 
     }
 
-    getPersonas(): Promise<any>{
+    getPersonas(): Promise<Array<Persona>>{
+        let array = new Array<Persona>
         let url = environment.urlApiPersonas;
         let request = "api/personas";
         let promise = new Promise((resolve)=>{
